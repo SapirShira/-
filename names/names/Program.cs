@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
 
 namespace names
 {
@@ -71,84 +73,106 @@ namespace names
         static void Main(string[] args)
         {
             int flag = 0;
+            int work = 0;
             string enterdValue;
             Dictionary<string, int> new_map = new Dictionary<string, int>();
             fix_list f = new fix_list();
             f.map_name = new Dictionary<string, int>();
-            //{ { "Jacob", 15 }, { "Yaakov", 12 }, { "Tomer", 13 }, { "Tommer", 4 }, { "Sara", 19 } };
             f.lst_sn = new List<List<string>>();
-            //f.lst_sn.Add(new List<string> { "Jacob", "Yaakov" });
-            //f.lst_sn.Add(new List<string> { "Yaakov", "Yaacov" });
-            //f.lst_sn.Add(new List<string> { "Tomer", "Tommer" });
-            Console.WriteLine("Enter a name and number with a space between them - each pair in a separate row or -1 to the end of the list");
             
-            while (flag != -1)
+            while (work == 0)
             {
-                enterdValue = Console.ReadLine();
-                if (enterdValue[0] == ' ')
+                string text;
+                try
                 {
-                    Console.WriteLine("please Enter a valid value with now space in the begining");
+                    Console.WriteLine("Enter the path of the file");
+                    enterdValue = Console.ReadLine();
+
+                    text = System.IO.File.ReadAllText(enterdValue);
                 }
-                
-                if (enterdValue.Contains("-1"))
+                catch (Exception e)
                 {
-                    flag = -1;
+                    Console.WriteLine("path is not valid please try agine");
                     continue;
                 }
-                string[] enterdVal = enterdValue.Split(' ');
-                f.map_name.Add(enterdVal[0], int.Parse(enterdVal[1]));
-            }
-
-            Console.WriteLine("Enter pairs of similar names with a space between them - each pair in a separate row or -1 to the end of the list");
-            flag = 0;
-            while (flag != -1)
-            {
-                enterdValue = Console.ReadLine();
-                if (enterdValue[0] == ' ')
+                try
                 {
-                    Console.WriteLine("please Enter a valid value with now space in the begining");
-                }
-
-                if (enterdValue.Contains("-1"))
-                {
-                    flag = -1;
-                    continue;
-                }
-                string[] enterdVal = enterdValue.Split(' ');
-                f.lst_sn.Add(new List<string>() { enterdVal[0], enterdVal[1]});
-            }
-
-            Dictionary<string, List<string>> map_fix = f.fixListName();
-           
-            foreach (string k in map_fix.Keys)
-            {
-                new_map.Add(k, 0);
-                
-            }
-            foreach(string n in f.map_name.Keys)
-            {
-                if(new_map.ContainsKey(n))
-                {
-                    new_map[n] += f.map_name.GetValueOrDefault(n);
-                }
-                else if(f.lst_dupNames.Contains(n))
-                {
-                    foreach(string k in map_fix.Keys)
+                    string[] splitedFil = text.Split("Synonyms:");
+                    string[] splitFirstPart = splitedFil[0].Split("Names:");
+                    string[] splitToMap;
+                    splitFirstPart = splitFirstPart[1].Split(',');
+                    string name;
+                    int num;
+                    for (int i = 0; i < splitFirstPart.Length; i++)
                     {
-                        if(map_fix.GetValueOrDefault(k).Contains(n))
-                            new_map[k] += f.map_name.GetValueOrDefault(n);
+                        name = "";
+                        num = 0;
+                        splitToMap = splitFirstPart[i].Split('(');
+                        for (int j = 0; j < splitToMap.Length; j++)
+                        {
+                            splitToMap[j] = Regex.Replace(splitToMap[j], @"[^0-9a-zA-Z]+", "").ToString();
+                            if (splitToMap[j] != "")
+                            {
+                                if (name == "")
+                                    name = splitToMap[j];
+                                else
+                                {
+                                    num = Convert.ToInt32(splitToMap[j]);
+                                    break;
+                                }
+                            }
+                        }
+                        if (name != "")
+                            f.map_name.Add(name, num);
                     }
-                }
-                else
-                {
-                    new_map.Add(n, f.map_name.GetValueOrDefault(n));
-                }
-            }
-            foreach (string k in new_map.Keys)
-            {
-                Console.WriteLine(k + ' ' + new_map.GetValueOrDefault(k));
-            }
 
+                    string[] splitScondPart = splitedFil[1].Split(',');
+                    for (int i = 0; i < splitScondPart.Length -1; i+=2)
+                    {
+                        splitScondPart[i] = Regex.Replace(splitScondPart[i], @"[^0-9a-zA-Z]+", "").ToString();
+                        splitScondPart[i+1] = Regex.Replace(splitScondPart[i+1], @"[^0-9a-zA-Z]+", "").ToString();
+
+                        f.lst_sn.Add(new List<string>() { splitScondPart[i], splitScondPart[i + 1] });
+                    }
+
+                    Dictionary<string, List<string>> map_fix = f.fixListName();
+
+                    foreach (string k in map_fix.Keys)
+                    {
+                        new_map.Add(k, 0);
+
+                    }
+                    foreach (string n in f.map_name.Keys)
+                    {
+                        if (new_map.ContainsKey(n))
+                        {
+                            new_map[n] += f.map_name.GetValueOrDefault(n);
+                        }
+                        else if (f.lst_dupNames.Contains(n))
+                        {
+                            foreach (string k in map_fix.Keys)
+                            {
+                                if (map_fix.GetValueOrDefault(k).Contains(n))
+                                    new_map[k] += f.map_name.GetValueOrDefault(n);
+                            }
+                        }
+                        else
+                        {
+                            new_map.Add(n, f.map_name.GetValueOrDefault(n));
+                        }
+                    }
+                    foreach (string k in new_map.Keys)
+                    {
+                        Console.WriteLine(k + ' ' + new_map.GetValueOrDefault(k));
+                    }
+                    work = 1;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e);
+                    break;
+                }
+            }
         }
     }
 }
