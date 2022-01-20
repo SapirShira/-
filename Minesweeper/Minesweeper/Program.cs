@@ -55,20 +55,7 @@ namespace Minesweeper
 					else
 						i--;
 				}
-                for (int i = 0; i < 8; i++)
-                {
-                    for (int j = 0; j < 9; j++)
-                    {
-                        if (j == 8)
-                            Console.Write("|");
-                        else if (matToremember[i, j] == -1)
-                            Console.Write("| Q ");
-                        else
-                            Console.Write("| " + matToremember[i, j] + " ");
-
-                    }
-                    Console.WriteLine("\n");
-                }
+               
             }
 
             public int print()
@@ -120,7 +107,7 @@ namespace Minesweeper
 						if(ans == "y" || ans == "Y")
                         {
 							matToDisplay[lo, la] = 0;
-							int x = fillInPosition(lo - 1, la - 1);
+							int x = fillInPosition(lo, la);
 							return x;
 						}
 						if (ans == "n" || ans == "N")
@@ -134,7 +121,6 @@ namespace Minesweeper
 				else
 				{
 					matToDisplay[lo, la] = 1;
-					Console.WriteLine(matToDisplay[lo, la]);
 					if (matToremember[lo, la] == -1)
 					{
 						return -1;
@@ -151,7 +137,23 @@ namespace Minesweeper
 							matToDisplay[a - 1, b + 1] = 1;
 							if (matToremember[a - 1, b + 1] == 1 || matToremember[a - 1, b + 1] == 2)
 								break;
-							a --;b ++;
+							a--; b++;
+							if (a - 1 != -1 && b + 1 != 8)
+								matToDisplay[a - 1, b + 1] = 1;
+							if (a + 1 != 8 && b - 1 != -1)
+								matToDisplay[a + 1, b - 1] = 1;
+							if (a - 1 != -1 && b - 1 != -1)
+								matToDisplay[a - 1, b - 1] = 1;
+							if (a + 1 != 8 && b + 1 != 8)
+								matToDisplay[a + 1, b + 1] = 1;
+							if (b + 1 != 8)
+								matToDisplay[a, b + 1] = 1;
+							if (b - 1 != -1)
+								matToDisplay[a, b - 1] = 1;
+							if (a + 1 != 8)
+								matToDisplay[a + 1, b] = 1;
+							if (a - 1 != -1)
+								matToDisplay[a - 1, b] = 1;
 						}
 						a = lo; b = la;
 						while (a + 1 != 8 && b - 1 != -1)
@@ -159,7 +161,23 @@ namespace Minesweeper
 							matToDisplay[a + 1, b - 1] = 1;
 							if (matToremember[a + 1, b - 1] == 1 || matToremember[a + 1, b - 1] == 2)
 								break;
-							a ++; b --;
+							a++; b--;
+							if (a - 1 != -1 && b + 1 != 8)
+								matToDisplay[a - 1, b + 1] = 1;
+							if (a + 1 != 8 && b - 1 != -1)
+								matToDisplay[a + 1, b - 1] = 1;
+							if (a - 1 != -1 && b - 1 != -1)
+								matToDisplay[a - 1, b - 1] = 1;
+							if (a + 1 != 8 && b + 1 != 8)
+								matToDisplay[a + 1, b + 1] = 1;
+							if (b + 1 != 8)
+								matToDisplay[a, b + 1] = 1;
+							if (b - 1 != -1)
+								matToDisplay[a, b - 1] = 1;
+							if (a + 1 != 8)
+								matToDisplay[a + 1, b] = 1;
+							if (a - 1 != -1)
+								matToDisplay[a - 1, b] = 1;
 						}
 						a = lo; b = la;
 						while (a - 1 != -1 && b - 1 != -1)
@@ -167,7 +185,23 @@ namespace Minesweeper
 							matToDisplay[a - 1, b - 1] = 1;
 							if (matToremember[a - 1, b - 1] == 1 || matToremember[a - 1, b - 1] == 2)
 								break;
-							a--;b--;
+							a--; b--;
+							if (a - 1 != -1 && b + 1 != 8)
+								matToDisplay[a - 1, b + 1] = 1;
+							if (a + 1 != 8 && b - 1 != -1)
+								matToDisplay[a + 1, b - 1] = 1;
+							if (a - 1 != -1 && b - 1 != -1)
+								matToDisplay[a - 1, b - 1] = 1;
+							if (a + 1 != 8 && b + 1 != 8)
+								matToDisplay[a + 1, b + 1] = 1;
+							if (b + 1 != 8)
+								matToDisplay[a, b + 1] = 1;
+							if (b - 1 != -1)
+								matToDisplay[a, b - 1] = 1;
+							if (a + 1 != 8)
+								matToDisplay[a + 1, b] = 1;
+							if (a - 1 != -1)
+								matToDisplay[a - 1, b] = 1;
 						}
 						a = lo; b = la;
 						while (a + 1 != 8 && b + 1 != 8)
@@ -175,7 +209,23 @@ namespace Minesweeper
 							matToDisplay[a + 1, b + 1] = 1;
 							if (matToremember[a + 1, b + 1] == 2 || matToremember[a + 1, b + 1] == 1)
 								break;
-							a++;b++;
+							a++; b++;
+							if (a - 1 != -1 && b + 1 != 8)
+								matToDisplay[a - 1, b + 1] = 1;
+							if (a + 1 != 8 && b - 1 != -1)
+								matToDisplay[a + 1, b - 1] = 1;
+							if (a - 1 != -1 && b - 1 != -1)
+								matToDisplay[a - 1, b - 1] = 1;
+							if (a + 1 != 8 && b + 1 != 8)
+								matToDisplay[a + 1, b + 1] = 1;
+							if (b + 1 != 8)
+								matToDisplay[a, b + 1] = 1;
+							if (b - 1 != -1)
+								matToDisplay[a, b - 1] = 1;
+							if (a + 1 != 8)
+								matToDisplay[a + 1, b] = 1;
+							if (a - 1 != -1)
+								matToDisplay[a - 1, b] = 1;
 						}
 						a = lo; b = la;
 						while (b + 1 != 8)
@@ -184,6 +234,22 @@ namespace Minesweeper
 							if (matToremember[a, b + 1] == 1 || matToremember[a, b + 1] == 2)
 								break;
 							b++;
+							if (a - 1 != -1 && b + 1 != 8)
+								matToDisplay[a - 1, b + 1] = 1;
+							if (a + 1 != 8 && b - 1 != -1)
+								matToDisplay[a + 1, b - 1] = 1;
+							if (a - 1 != -1 && b - 1 != -1)
+								matToDisplay[a - 1, b - 1] = 1;
+							if (a + 1 != 8 && b + 1 != 8)
+								matToDisplay[a + 1, b + 1] = 1;
+							if (b + 1 != 8)
+								matToDisplay[a, b + 1] = 1;
+							if (b - 1 != -1)
+								matToDisplay[a, b - 1] = 1;
+							if (a + 1 != 8)
+								matToDisplay[a + 1, b] = 1;
+							if (a - 1 != -1)
+								matToDisplay[a - 1, b] = 1;
 						}
 						a = lo; b = la;
 						while (b - 1 != -1)
@@ -192,6 +258,22 @@ namespace Minesweeper
 							if (matToremember[a, b - 1] == 2 || matToremember[a, b - 1] == 1)
 								break;
 							b--;
+							if (a - 1 != -1 && b + 1 != 8)
+								matToDisplay[a - 1, b + 1] = 1;
+							if (a + 1 != 8 && b - 1 != -1)
+								matToDisplay[a + 1, b - 1] = 1;
+							if (a - 1 != -1 && b - 1 != -1)
+								matToDisplay[a - 1, b - 1] = 1;
+							if (a + 1 != 8 && b + 1 != 8)
+								matToDisplay[a + 1, b + 1] = 1;
+							if (b + 1 != 8)
+								matToDisplay[a, b + 1] = 1;
+							if (b - 1 != -1)
+								matToDisplay[a, b - 1] = 1;
+							if (a + 1 != 8)
+								matToDisplay[a + 1, b] = 1;
+							if (a - 1 != -1)
+								matToDisplay[a - 1, b] = 1;
 						}
 						a = lo; b = la;
 						while (a + 1 != 8)
@@ -200,6 +282,22 @@ namespace Minesweeper
 							if (matToremember[a + 1, b] == 1 || matToremember[a + 1, b] == 2)
 								break;
 							a++;
+							if (a - 1 != -1 && b + 1 != 8)
+								matToDisplay[a - 1, b + 1] = 1;
+							if (a + 1 != 8 && b - 1 != -1)
+								matToDisplay[a + 1, b - 1] = 1;
+							if (a - 1 != -1 && b - 1 != -1)
+								matToDisplay[a - 1, b - 1] = 1;
+							if (a + 1 != 8 && b + 1 != 8)
+								matToDisplay[a + 1, b + 1] = 1;
+							if (b + 1 != 8)
+								matToDisplay[a, b + 1] = 1;
+							if (b - 1 != -1)
+								matToDisplay[a, b - 1] = 1;
+							if (a + 1 != 8)
+								matToDisplay[a + 1, b] = 1;
+							if (a - 1 != -1)
+								matToDisplay[a - 1, b] = 1;
 						}
 						a = lo; b = la;
 						while (a - 1 != -1)
@@ -208,6 +306,22 @@ namespace Minesweeper
 							if (matToremember[a - 1, b] == 2 || matToremember[a - 1, b] == 1)
 								break;
 							a--;
+							if (a - 1 != -1 && b + 1 != 8)
+								matToDisplay[a - 1, b + 1] = 1;
+							if (a + 1 != 8 && b - 1 != -1)
+								matToDisplay[a + 1, b - 1] = 1;
+							if (a - 1 != -1 && b - 1 != -1)
+								matToDisplay[a - 1, b - 1] = 1;
+							if (a + 1 != 8 && b + 1 != 8)
+								matToDisplay[a + 1, b + 1] = 1;
+							if (b + 1 != 8)
+								matToDisplay[a, b + 1] = 1;
+							if (b - 1 != -1)
+								matToDisplay[a, b - 1] = 1;
+							if (a + 1 != 8)
+								matToDisplay[a + 1, b] = 1;
+							if (a - 1 != -1)
+								matToDisplay[a - 1, b] = 1;
 						}
 					}
 
@@ -258,8 +372,11 @@ namespace Minesweeper
 									continue;
 								}
 							}
-							matToDisplay[o, a] = 2;
-							Console.WriteLine("Location marked as blocked\nplease enter position again");
+							matToDisplay[o-1, a-1] = 2;
+							Console.WriteLine("Location marked as blocked");
+							print();
+							Console.WriteLine("please enter position again");
+							flag = 0;
 							continue;
 						}
 						if (o > 8 || a > 8 || o < 1 || a < 1)
