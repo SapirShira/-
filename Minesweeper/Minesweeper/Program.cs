@@ -55,31 +55,32 @@ namespace Minesweeper
 					else
 						i--;
 				}
-				for (int i = 0; i < 8; i++)
-				{
-					for (int j = 0; j < 9; j++)
-					{
-						if (j == 8)
-							Console.Write("|");
-						else if(matToremember[i, j] == -1)
-							Console.Write("| Q ");
-						else
-						Console.Write("| " + matToremember[i, j] + " ");
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 9; j++)
+                    {
+                        if (j == 8)
+                            Console.Write("|");
+                        else if (matToremember[i, j] == -1)
+                            Console.Write("| Q ");
+                        else
+                            Console.Write("| " + matToremember[i, j] + " ");
 
-					}
-					Console.WriteLine("\n");
-				}
-			}
-					
-			public int print()
+                    }
+                    Console.WriteLine("\n");
+                }
+            }
+
+            public int print()
             {
 				int i, j, flag = 0;
 				for (i = 0; i < 8; i++)
 				{
+					Console.Write((i+1) + "  -");
 					for (j = 0; j < 9; j++)
 					{
 						if (j == 8)
-							Console.Write("| " + (8 - i));
+							Console.Write("|");
 						else if (matToDisplay[i, j] == 0)
 						{
 							Console.Write("| ? ");
@@ -97,8 +98,8 @@ namespace Minesweeper
 					}
 					Console.WriteLine("\n");
 				}
-				Console.Write("  -   -   -   -   -   -   -   -\n");
-				Console.Write("  1   2   3   4   5   6   7   8\n");
+				Console.Write("      -   -   -   -   -   -   -   -\n");
+				Console.Write("      1   2   3   4   5   6   7   8\n");
 				return flag;
 			}
 
@@ -119,7 +120,7 @@ namespace Minesweeper
 						if(ans == "y" || ans == "Y")
                         {
 							matToDisplay[lo, la] = 0;
-							int x = fillInPosition(lo, la);
+							int x = fillInPosition(lo - 1, la - 1);
 							return x;
 						}
 						if (ans == "n" || ans == "N")
@@ -133,6 +134,7 @@ namespace Minesweeper
 				else
 				{
 					matToDisplay[lo, la] = 1;
+					Console.WriteLine(matToDisplay[lo, la]);
 					if (matToremember[lo, la] == -1)
 					{
 						return -1;
@@ -260,9 +262,9 @@ namespace Minesweeper
 							Console.WriteLine("Location marked as blocked\nplease enter position again");
 							continue;
 						}
-						if (o > 7 || a > 7 || o < 0 || a < 0)
+						if (o > 8 || a > 8 || o < 1 || a < 1)
 							throw new Exception("at list 1 number is not valid please try again");
-						x = fillInPosition(o, a);
+						x = fillInPosition(o - 1, a - 1);
 						if (x == 0)
 							continue;
 						else if (x == -1)
@@ -277,6 +279,11 @@ namespace Minesweeper
 								Console.WriteLine("win");
 								break;
                             }
+							else
+                            {
+								Console.WriteLine("Please enter longitude and latitude (each in a separate line)");
+								Console.WriteLine("if you whant to block a position please enter -1 twice (each in a separate line)");
+							}
 						}
 
 					}
