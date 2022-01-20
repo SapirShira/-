@@ -293,6 +293,7 @@ namespace Minesweeper
         {
 
 			Game game = new Game();
+			game.play();
 			
 		}
     }
