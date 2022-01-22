@@ -74,7 +74,13 @@ namespace Minesweeper
 							flag = 1;
 						}
 						else if (matToDisplay[i, j] == 1)
-							Console.Write("| " + matToremember[i, j] + " ");
+						{
+							if (matToremember[i, j] == 0)
+								Console.Write("|   ");
+							else
+								Console.Write("| " + matToremember[i, j] + " ");
+						}
+
 						else if (matToDisplay[i, j] == 2)
 						{
 							Console.Write("| B ");
@@ -89,17 +95,26 @@ namespace Minesweeper
 				Console.Write("      1   2   3   4   5   6   7   8\n");
 				return flag;
 			}
-
-			public int fillInPosition(int lo, int la)
+			string ans;
+			int a, b;
+			public int fillInPosition(int lo, int la, int flag)
+			//public int fillInPosition(int lo, int la)
             {
-				string ans;
+				
+				//Console.Write(matToDisplay[lo, la]);
+				//if (matToDisplay[lo, la] == 1 && flag == 0)
 				if (matToDisplay[lo, la] == 1)
 				{
-					Console.WriteLine("you alredy opened this place, please try again");
-					return 0;
+					if (flag == 0)
+					{
+						Console.WriteLine("you alredy opened this place, please try again");
+						return 0;
+					}
+					return 1;
 				}
-				if(matToDisplay[lo, la] == 2)
-                {
+				//if(matToDisplay[lo, la] == 2 && flag ==0)
+				if (matToDisplay[lo, la] == 2)
+				{
 					Console.WriteLine("You blocked this location Do you want to release it and select it?(Y/N)");
 					while(true)
                     {
@@ -107,7 +122,8 @@ namespace Minesweeper
 						if(ans == "y" || ans == "Y")
                         {
 							matToDisplay[lo, la] = 0;
-							int x = fillInPosition(lo, la);
+							int x = fillInPosition(lo, la, 1);
+							//int x = fillInPosition(lo, la);
 							return x;
 						}
 						if (ans == "n" || ans == "N")
@@ -128,202 +144,228 @@ namespace Minesweeper
 					if (matToremember[lo, la] == 1 || matToremember[lo, la] == 2)
 					{
 						return 1;
-                    }
-                    else
-                    {
-						int a = lo, b = la;
-						while (a - 1 != -1 && b + 1 != 8)
-						{
-							matToDisplay[a - 1, b + 1] = 1;
-							if (matToremember[a - 1, b + 1] == 1 || matToremember[a - 1, b + 1] == 2)
-								break;
-							a--; b++;
-							if (a - 1 != -1 && b + 1 != 8)
-								matToDisplay[a - 1, b + 1] = 1;
-							if (a + 1 != 8 && b - 1 != -1)
-								matToDisplay[a + 1, b - 1] = 1;
-							if (a - 1 != -1 && b - 1 != -1)
-								matToDisplay[a - 1, b - 1] = 1;
-							if (a + 1 != 8 && b + 1 != 8)
-								matToDisplay[a + 1, b + 1] = 1;
-							if (b + 1 != 8)
-								matToDisplay[a, b + 1] = 1;
-							if (b - 1 != -1)
-								matToDisplay[a, b - 1] = 1;
-							if (a + 1 != 8)
-								matToDisplay[a + 1, b] = 1;
-							if (a - 1 != -1)
-								matToDisplay[a - 1, b] = 1;
-						}
+					}
+					else
+					{
 						a = lo; b = la;
-						while (a + 1 != 8 && b - 1 != -1)
+						if (a - 1 != -1 && b + 1 != 8)
 						{
-							matToDisplay[a + 1, b - 1] = 1;
-							if (matToremember[a + 1, b - 1] == 1 || matToremember[a + 1, b - 1] == 2)
-								break;
-							a++; b--;
-							if (a - 1 != -1 && b + 1 != 8)
-								matToDisplay[a - 1, b + 1] = 1;
-							if (a + 1 != 8 && b - 1 != -1)
-								matToDisplay[a + 1, b - 1] = 1;
-							if (a - 1 != -1 && b - 1 != -1)
-								matToDisplay[a - 1, b - 1] = 1;
-							if (a + 1 != 8 && b + 1 != 8)
-								matToDisplay[a + 1, b + 1] = 1;
-							if (b + 1 != 8)
-								matToDisplay[a, b + 1] = 1;
-							if (b - 1 != -1)
-								matToDisplay[a, b - 1] = 1;
-							if (a + 1 != 8)
-								matToDisplay[a + 1, b] = 1;
-							if (a - 1 != -1)
-								matToDisplay[a - 1, b] = 1;
+							if (matToDisplay[a - 1, b + 1] == 0)
+								fillInPosition(a - 1, b + 1, 1);
+							//fillInPosition(a - 1, b + 1);
 						}
-						a = lo; b = la;
-						while (a - 1 != -1 && b - 1 != -1)
+						if (a + 1 != 8 && b - 1 != -1)
 						{
-							matToDisplay[a - 1, b - 1] = 1;
-							if (matToremember[a - 1, b - 1] == 1 || matToremember[a - 1, b - 1] == 2)
-								break;
-							a--; b--;
-							if (a - 1 != -1 && b + 1 != 8)
-								matToDisplay[a - 1, b + 1] = 1;
-							if (a + 1 != 8 && b - 1 != -1)
-								matToDisplay[a + 1, b - 1] = 1;
-							if (a - 1 != -1 && b - 1 != -1)
-								matToDisplay[a - 1, b - 1] = 1;
-							if (a + 1 != 8 && b + 1 != 8)
-								matToDisplay[a + 1, b + 1] = 1;
-							if (b + 1 != 8)
-								matToDisplay[a, b + 1] = 1;
-							if (b - 1 != -1)
-								matToDisplay[a, b - 1] = 1;
-							if (a + 1 != 8)
-								matToDisplay[a + 1, b] = 1;
-							if (a - 1 != -1)
-								matToDisplay[a - 1, b] = 1;
+							if (matToDisplay[a + 1, b - 1] == 0)
+								//fillInPosition(a + 1, b - 1);
+								fillInPosition(a + 1, b - 1, 1);
 						}
-						a = lo; b = la;
-						while (a + 1 != 8 && b + 1 != 8)
+						if (a - 1 != -1 && b - 1 != -1)
 						{
-							matToDisplay[a + 1, b + 1] = 1;
-							if (matToremember[a + 1, b + 1] == 2 || matToremember[a + 1, b + 1] == 1)
-								break;
-							a++; b++;
-							if (a - 1 != -1 && b + 1 != 8)
-								matToDisplay[a - 1, b + 1] = 1;
-							if (a + 1 != 8 && b - 1 != -1)
-								matToDisplay[a + 1, b - 1] = 1;
-							if (a - 1 != -1 && b - 1 != -1)
-								matToDisplay[a - 1, b - 1] = 1;
-							if (a + 1 != 8 && b + 1 != 8)
-								matToDisplay[a + 1, b + 1] = 1;
-							if (b + 1 != 8)
-								matToDisplay[a, b + 1] = 1;
-							if (b - 1 != -1)
-								matToDisplay[a, b - 1] = 1;
-							if (a + 1 != 8)
-								matToDisplay[a + 1, b] = 1;
-							if (a - 1 != -1)
-								matToDisplay[a - 1, b] = 1;
+							if (matToDisplay[a - 1, b - 1] == 0)
+								//fillInPosition(a - 1, b - 1);
+								fillInPosition(a - 1, b - 1, 1);
 						}
-						a = lo; b = la;
-						while (b + 1 != 8)
+						if (a + 1 != 8 && b + 1 != 8)
 						{
-							matToDisplay[a, b + 1] = 1;
-							if (matToremember[a, b + 1] == 1 || matToremember[a, b + 1] == 2)
-								break;
-							b++;
-							if (a - 1 != -1 && b + 1 != 8)
-								matToDisplay[a - 1, b + 1] = 1;
-							if (a + 1 != 8 && b - 1 != -1)
-								matToDisplay[a + 1, b - 1] = 1;
-							if (a - 1 != -1 && b - 1 != -1)
-								matToDisplay[a - 1, b - 1] = 1;
-							if (a + 1 != 8 && b + 1 != 8)
-								matToDisplay[a + 1, b + 1] = 1;
-							if (b + 1 != 8)
-								matToDisplay[a, b + 1] = 1;
-							if (b - 1 != -1)
-								matToDisplay[a, b - 1] = 1;
-							if (a + 1 != 8)
-								matToDisplay[a + 1, b] = 1;
-							if (a - 1 != -1)
-								matToDisplay[a - 1, b] = 1;
+							if (matToDisplay[a + 1, b + 1] == 0)
+								//fillInPosition(a + 1, b + 1);
+								fillInPosition(a + 1, b + 1, 1);
 						}
-						a = lo; b = la;
-						while (b - 1 != -1)
+						if (b + 1 != 8)
 						{
-							matToDisplay[a, b - 1] = 1;
-							if (matToremember[a, b - 1] == 2 || matToremember[a, b - 1] == 1)
-								break;
-							b--;
-							if (a - 1 != -1 && b + 1 != 8)
-								matToDisplay[a - 1, b + 1] = 1;
-							if (a + 1 != 8 && b - 1 != -1)
-								matToDisplay[a + 1, b - 1] = 1;
-							if (a - 1 != -1 && b - 1 != -1)
-								matToDisplay[a - 1, b - 1] = 1;
-							if (a + 1 != 8 && b + 1 != 8)
-								matToDisplay[a + 1, b + 1] = 1;
-							if (b + 1 != 8)
-								matToDisplay[a, b + 1] = 1;
-							if (b - 1 != -1)
-								matToDisplay[a, b - 1] = 1;
-							if (a + 1 != 8)
-								matToDisplay[a + 1, b] = 1;
-							if (a - 1 != -1)
-								matToDisplay[a - 1, b] = 1;
+							if (matToDisplay[a, b + 1] == 0)
+								//fillInPosition(a, b + 1);
+								fillInPosition(a, b + 1, 1);
 						}
-						a = lo; b = la;
-						while (a + 1 != 8)
+						if (b - 1 != -1)
 						{
-							matToDisplay[a + 1, b] = 1;
-							if (matToremember[a + 1, b] == 1 || matToremember[a + 1, b] == 2)
-								break;
-							a++;
-							if (a - 1 != -1 && b + 1 != 8)
-								matToDisplay[a - 1, b + 1] = 1;
-							if (a + 1 != 8 && b - 1 != -1)
-								matToDisplay[a + 1, b - 1] = 1;
-							if (a - 1 != -1 && b - 1 != -1)
-								matToDisplay[a - 1, b - 1] = 1;
-							if (a + 1 != 8 && b + 1 != 8)
-								matToDisplay[a + 1, b + 1] = 1;
-							if (b + 1 != 8)
-								matToDisplay[a, b + 1] = 1;
-							if (b - 1 != -1)
-								matToDisplay[a, b - 1] = 1;
-							if (a + 1 != 8)
-								matToDisplay[a + 1, b] = 1;
-							if (a - 1 != -1)
-								matToDisplay[a - 1, b] = 1;
+							if (matToDisplay[a, b - 1] == 0)
+								//fillInPosition(a, b - 1);
+								fillInPosition(a, b - 1, 1);
 						}
-						a = lo; b = la;
-						while (a - 1 != -1)
+						if (a + 1 != 8)
 						{
-							matToDisplay[a - 1, b] = 1;
-							if (matToremember[a - 1, b] == 2 || matToremember[a - 1, b] == 1)
-								break;
-							a--;
-							if (a - 1 != -1 && b + 1 != 8)
-								matToDisplay[a - 1, b + 1] = 1;
-							if (a + 1 != 8 && b - 1 != -1)
-								matToDisplay[a + 1, b - 1] = 1;
-							if (a - 1 != -1 && b - 1 != -1)
-								matToDisplay[a - 1, b - 1] = 1;
-							if (a + 1 != 8 && b + 1 != 8)
-								matToDisplay[a + 1, b + 1] = 1;
-							if (b + 1 != 8)
-								matToDisplay[a, b + 1] = 1;
-							if (b - 1 != -1)
-								matToDisplay[a, b - 1] = 1;
-							if (a + 1 != 8)
-								matToDisplay[a + 1, b] = 1;
-							if (a - 1 != -1)
-								matToDisplay[a - 1, b] = 1;
+							if (matToDisplay[a + 1, b] == 0)
+								//fillInPosition(a + 1, b);
+								fillInPosition(a + 1, b, 1);
+						}
+						if (a - 1 != -1)
+						{
+							if (matToDisplay[a - 1, b] == 0)
+								//fillInPosition(a - 1, b);
+								fillInPosition(a - 1, b, 1);
 						}
 					}
+					/*a = lo; b = la;
+					while (a + 1 != 8 && b - 1 != -1)
+					{
+						matToDisplay[a + 1, b - 1] = 1;
+						if (matToremember[a + 1, b - 1] == 1 || matToremember[a + 1, b - 1] == 2)
+							break;
+						a++; b--;
+						if (a - 1 != -1 && b + 1 != 8)
+							matToDisplay[a - 1, b + 1] = 1;
+						if (a + 1 != 8 && b - 1 != -1)
+							matToDisplay[a + 1, b - 1] = 1;
+						if (a - 1 != -1 && b - 1 != -1)
+							matToDisplay[a - 1, b - 1] = 1;
+						if (a + 1 != 8 && b + 1 != 8)
+							matToDisplay[a + 1, b + 1] = 1;
+						if (b + 1 != 8)
+							matToDisplay[a, b + 1] = 1;
+						if (b - 1 != -1)
+							matToDisplay[a, b - 1] = 1;
+						if (a + 1 != 8)
+							matToDisplay[a + 1, b] = 1;
+						if (a - 1 != -1)
+							matToDisplay[a - 1, b] = 1;
+					}
+					a = lo; b = la;
+					while (a - 1 != -1 && b - 1 != -1)
+					{
+						matToDisplay[a - 1, b - 1] = 1;
+						if (matToremember[a - 1, b - 1] == 1 || matToremember[a - 1, b - 1] == 2)
+							break;
+						a--; b--;
+						if (a - 1 != -1 && b + 1 != 8)
+							matToDisplay[a - 1, b + 1] = 1;
+						if (a + 1 != 8 && b - 1 != -1)
+							matToDisplay[a + 1, b - 1] = 1;
+						if (a - 1 != -1 && b - 1 != -1)
+							matToDisplay[a - 1, b - 1] = 1;
+						if (a + 1 != 8 && b + 1 != 8)
+							matToDisplay[a + 1, b + 1] = 1;
+						if (b + 1 != 8)
+							matToDisplay[a, b + 1] = 1;
+						if (b - 1 != -1)
+							matToDisplay[a, b - 1] = 1;
+						if (a + 1 != 8)
+							matToDisplay[a + 1, b] = 1;
+						if (a - 1 != -1)
+							matToDisplay[a - 1, b] = 1;
+					}
+					a = lo; b = la;
+					while (a + 1 != 8 && b + 1 != 8)
+					{
+						matToDisplay[a + 1, b + 1] = 1;
+						if (matToremember[a + 1, b + 1] == 2 || matToremember[a + 1, b + 1] == 1)
+							break;
+						a++; b++;
+						if (a - 1 != -1 && b + 1 != 8)
+							matToDisplay[a - 1, b + 1] = 1;
+						if (a + 1 != 8 && b - 1 != -1)
+							matToDisplay[a + 1, b - 1] = 1;
+						if (a - 1 != -1 && b - 1 != -1)
+							matToDisplay[a - 1, b - 1] = 1;
+						if (a + 1 != 8 && b + 1 != 8)
+							matToDisplay[a + 1, b + 1] = 1;
+						if (b + 1 != 8)
+							matToDisplay[a, b + 1] = 1;
+						if (b - 1 != -1)
+							matToDisplay[a, b - 1] = 1;
+						if (a + 1 != 8)
+							matToDisplay[a + 1, b] = 1;
+						if (a - 1 != -1)
+							matToDisplay[a - 1, b] = 1;
+					}
+					a = lo; b = la;
+					while (b + 1 != 8)
+					{
+						matToDisplay[a, b + 1] = 1;
+						if (matToremember[a, b + 1] == 1 || matToremember[a, b + 1] == 2)
+							break;
+						b++;
+						if (a - 1 != -1 && b + 1 != 8)
+							matToDisplay[a - 1, b + 1] = 1;
+						if (a + 1 != 8 && b - 1 != -1)
+							matToDisplay[a + 1, b - 1] = 1;
+						if (a - 1 != -1 && b - 1 != -1)
+							matToDisplay[a - 1, b - 1] = 1;
+						if (a + 1 != 8 && b + 1 != 8)
+							matToDisplay[a + 1, b + 1] = 1;
+						if (b + 1 != 8)
+							matToDisplay[a, b + 1] = 1;
+						if (b - 1 != -1)
+							matToDisplay[a, b - 1] = 1;
+						if (a + 1 != 8)
+							matToDisplay[a + 1, b] = 1;
+						if (a - 1 != -1)
+							matToDisplay[a - 1, b] = 1;
+					}
+					a = lo; b = la;
+					while (b - 1 != -1)
+					{
+						matToDisplay[a, b - 1] = 1;
+						if (matToremember[a, b - 1] == 2 || matToremember[a, b - 1] == 1)
+							break;
+						b--;
+						if (a - 1 != -1 && b + 1 != 8)
+							matToDisplay[a - 1, b + 1] = 1;
+						if (a + 1 != 8 && b - 1 != -1)
+							matToDisplay[a + 1, b - 1] = 1;
+						if (a - 1 != -1 && b - 1 != -1)
+							matToDisplay[a - 1, b - 1] = 1;
+						if (a + 1 != 8 && b + 1 != 8)
+							matToDisplay[a + 1, b + 1] = 1;
+						if (b + 1 != 8)
+							matToDisplay[a, b + 1] = 1;
+						if (b - 1 != -1)
+							matToDisplay[a, b - 1] = 1;
+						if (a + 1 != 8)
+							matToDisplay[a + 1, b] = 1;
+						if (a - 1 != -1)
+							matToDisplay[a - 1, b] = 1;
+					}
+					a = lo; b = la;
+					while (a + 1 != 8)
+					{
+						matToDisplay[a + 1, b] = 1;
+						if (matToremember[a + 1, b] == 1 || matToremember[a + 1, b] == 2)
+							break;
+						a++;
+						if (a - 1 != -1 && b + 1 != 8)
+							matToDisplay[a - 1, b + 1] = 1;
+						if (a + 1 != 8 && b - 1 != -1)
+							matToDisplay[a + 1, b - 1] = 1;
+						if (a - 1 != -1 && b - 1 != -1)
+							matToDisplay[a - 1, b - 1] = 1;
+						if (a + 1 != 8 && b + 1 != 8)
+							matToDisplay[a + 1, b + 1] = 1;
+						if (b + 1 != 8)
+							matToDisplay[a, b + 1] = 1;
+						if (b - 1 != -1)
+							matToDisplay[a, b - 1] = 1;
+						if (a + 1 != 8)
+							matToDisplay[a + 1, b] = 1;
+						if (a - 1 != -1)
+							matToDisplay[a - 1, b] = 1;
+					}
+					a = lo; b = la;
+					while (a - 1 != -1)
+					{
+						matToDisplay[a - 1, b] = 1;
+						if (matToremember[a - 1, b] == 2 || matToremember[a - 1, b] == 1)
+							break;
+						a--;
+						if (a - 1 != -1 && b + 1 != 8)
+							matToDisplay[a - 1, b + 1] = 1;
+						if (a + 1 != 8 && b - 1 != -1)
+							matToDisplay[a + 1, b - 1] = 1;
+						if (a - 1 != -1 && b - 1 != -1)
+							matToDisplay[a - 1, b - 1] = 1;
+						if (a + 1 != 8 && b + 1 != 8)
+							matToDisplay[a + 1, b + 1] = 1;
+						if (b + 1 != 8)
+							matToDisplay[a, b + 1] = 1;
+						if (b - 1 != -1)
+							matToDisplay[a, b - 1] = 1;
+						if (a + 1 != 8)
+							matToDisplay[a + 1, b] = 1;
+						if (a - 1 != -1)
+							matToDisplay[a - 1, b] = 1;
+					}
+				}*/
 
 				}
 				return 1;
@@ -365,10 +407,15 @@ namespace Minesweeper
 								{
 									o = Convert.ToInt32(lo);
 									a = Convert.ToInt32(la);
+									if (matToDisplay[o, a] == 1)
+										throw new Exception("you alredy opened this place, please try again");
 								}
 								catch
 								{
-									Console.WriteLine("Please enter a valid values (each in a separate line)");
+									if (matToDisplay[o, a] == 1)
+										Console.WriteLine("you alredy opened this place, please try again");
+									else
+										Console.WriteLine("Please enter a valid values (each in a separate line)");
 									continue;
 								}
 							}
@@ -381,7 +428,8 @@ namespace Minesweeper
 						}
 						if (o > 8 || a > 8 || o < 1 || a < 1)
 							throw new Exception("at list 1 number is not valid please try again");
-						x = fillInPosition(o - 1, a - 1);
+						//x = fillInPosition(o - 1, a - 1);
+						x = fillInPosition(o - 1, a - 1, 0);
 						if (x == 0)
 							continue;
 						else if (x == -1)
