@@ -8,23 +8,25 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\shira\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\שירה\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shira\\OneDrive\\שולחן העבודה\\‏‏תיקיה חדשה (2)\\names\\names\\names.csproj",
+      "projectUniqueName": "C:\\Users\\שירה\\Desktop\\-\\names\\names\\names.csproj",
       "projectName": "names",
-      "projectPath": "C:\\Users\\shira\\OneDrive\\שולחן העבודה\\‏‏תיקיה חדשה (2)\\names\\names\\names.csproj",
-      "packagesPath": "C:\\Users\\shira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shira\\OneDrive\\שולחן העבודה\\‏‏תיקיה חדשה (2)\\names\\names\\obj\\",
+      "projectPath": "C:\\Users\\שירה\\Desktop\\-\\names\\names\\names.csproj",
+      "packagesPath": "C:\\Users\\שירה\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\שירה\\Desktop\\-\\names\\names\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\shira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\שירה\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -63,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.416\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

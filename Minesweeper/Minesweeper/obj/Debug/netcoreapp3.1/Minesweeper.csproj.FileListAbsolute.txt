@@ -11,3 +11,16 @@ C:\Users\shira\OneDrive\שולחן העבודה\‏‏תיקיה חדשה (2)\Mi
 C:\Users\shira\OneDrive\שולחן העבודה\‏‏תיקיה חדשה (2)\Minesweeper\Minesweeper\obj\Debug\netcoreapp3.1\Minesweeper.dll
 C:\Users\shira\OneDrive\שולחן העבודה\‏‏תיקיה חדשה (2)\Minesweeper\Minesweeper\obj\Debug\netcoreapp3.1\Minesweeper.pdb
 C:\Users\shira\OneDrive\שולחן העבודה\‏‏תיקיה חדשה (2)\Minesweeper\Minesweeper\obj\Debug\netcoreapp3.1\Minesweeper.genruntimeconfig.cache
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\bin\Debug\netcoreapp3.1\Minesweeper.exe
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\bin\Debug\netcoreapp3.1\Minesweeper.deps.json
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\bin\Debug\netcoreapp3.1\Minesweeper.runtimeconfig.json
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\bin\Debug\netcoreapp3.1\Minesweeper.runtimeconfig.dev.json
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\bin\Debug\netcoreapp3.1\Minesweeper.dll
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\bin\Debug\netcoreapp3.1\Minesweeper.pdb
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\obj\Debug\netcoreapp3.1\Minesweeper.csprojAssemblyReference.cache
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\obj\Debug\netcoreapp3.1\Minesweeper.csproj.CoreCompileInputs.cache
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\obj\Debug\netcoreapp3.1\Minesweeper.AssemblyInfoInputs.cache
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\obj\Debug\netcoreapp3.1\Minesweeper.AssemblyInfo.cs
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\obj\Debug\netcoreapp3.1\Minesweeper.dll
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\obj\Debug\netcoreapp3.1\Minesweeper.pdb
+C:\Users\שירה\Desktop\-\Minesweeper\Minesweeper\obj\Debug\netcoreapp3.1\Minesweeper.genruntimeconfig.cache

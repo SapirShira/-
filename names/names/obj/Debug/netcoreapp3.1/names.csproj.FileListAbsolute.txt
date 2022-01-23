@@ -11,3 +11,16 @@ C:\Users\shira\OneDrive\שולחן העבודה\‏‏תיקיה חדשה (2)\na
 C:\Users\shira\OneDrive\שולחן העבודה\‏‏תיקיה חדשה (2)\names\names\obj\Debug\netcoreapp3.1\names.dll
 C:\Users\shira\OneDrive\שולחן העבודה\‏‏תיקיה חדשה (2)\names\names\obj\Debug\netcoreapp3.1\names.pdb
 C:\Users\shira\OneDrive\שולחן העבודה\‏‏תיקיה חדשה (2)\names\names\obj\Debug\netcoreapp3.1\names.genruntimeconfig.cache
+C:\Users\שירה\Desktop\-\names\names\bin\Debug\netcoreapp3.1\names.exe
+C:\Users\שירה\Desktop\-\names\names\bin\Debug\netcoreapp3.1\names.deps.json
+C:\Users\שירה\Desktop\-\names\names\bin\Debug\netcoreapp3.1\names.runtimeconfig.json
+C:\Users\שירה\Desktop\-\names\names\bin\Debug\netcoreapp3.1\names.runtimeconfig.dev.json
+C:\Users\שירה\Desktop\-\names\names\bin\Debug\netcoreapp3.1\names.dll
+C:\Users\שירה\Desktop\-\names\names\bin\Debug\netcoreapp3.1\names.pdb
+C:\Users\שירה\Desktop\-\names\names\obj\Debug\netcoreapp3.1\names.csprojAssemblyReference.cache
+C:\Users\שירה\Desktop\-\names\names\obj\Debug\netcoreapp3.1\names.csproj.CoreCompileInputs.cache
+C:\Users\שירה\Desktop\-\names\names\obj\Debug\netcoreapp3.1\names.AssemblyInfoInputs.cache
+C:\Users\שירה\Desktop\-\names\names\obj\Debug\netcoreapp3.1\names.AssemblyInfo.cs
+C:\Users\שירה\Desktop\-\names\names\obj\Debug\netcoreapp3.1\names.dll
+C:\Users\שירה\Desktop\-\names\names\obj\Debug\netcoreapp3.1\names.pdb
+C:\Users\שירה\Desktop\-\names\names\obj\Debug\netcoreapp3.1\names.genruntimeconfig.cache

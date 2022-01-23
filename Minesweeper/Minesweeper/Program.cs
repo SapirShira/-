@@ -73,42 +73,6 @@ namespace Minesweeper
 							i--;
 					}
 				}
-				for (int i = 0; i < 8; i++)
-				{
-					Console.Write((i + 1) + "  -");
-					for (int j = 0; j < 9; j++)
-					{
-						if (j == 8)
-							Console.Write("|");
-						else
-					
-								Console.Write("| " + matToremember[i, j] + " ");
-					}
-					Console.WriteLine("\n");
-				}
-				Console.Write("      -   -   -   -   -   -   -   -\n");
-				/*
-				  if (matToremember[a, b] == 0)
-					{
-						matToremember[a, b] = -1;
-						if (a - 1 != -1 && b + 1 != 8)
-							matToremember[a - 1, b + 1] = 1;
-						if (a + 1 != 8 && b - 1 != -1)
-							matToremember[a + 1, b - 1] = 2;
-						if (a - 1 != -1 && b - 1 != -1)
-							matToremember[a - 1, b - 1] = 1;
-						if (a + 1 != 8 && b + 1 != 8)
-							matToremember[a + 1, b + 1] = 2;
-						if (b + 1 != 8)
-							matToremember[a, b + 1] = 1;
-						if (b - 1 != -1)
-							matToremember[a, b - 1] = 2;
-						if (a + 1 != 8)
-							matToremember[a + 1, b] = 1;
-						if (a - 1 != -1)
-							matToremember[a - 1, b] = 2;
-					}
-				  */
 
 			}
 
@@ -160,9 +124,7 @@ namespace Minesweeper
 						Console.WriteLine("you alredy opened this place, please try again");
 						return 0;
 					}
-					//return 1;
 				}
-				//if(matToDisplay[lo, la] == 2 && flag ==0)
 				if (matToDisplay[lo, la] == 2 && flag == 0)
 				{
 
@@ -175,7 +137,6 @@ namespace Minesweeper
 						{
 							matToDisplay[lo, la] = 0;
 							int x = fillInPosition(lo, la, 1);
-							//int x = fillInPosition(lo, la);
 							return x;
 						}
 						if (ans == "n" || ans == "N")
@@ -202,53 +163,93 @@ namespace Minesweeper
 					}
 
 					a = lo; b = la;
-					/*if (a - 1 != -1 && b + 1 != 8)
+					if (a - 1 != -1 && b + 1 != 8)
 					{
 						if (matToDisplay[a - 1, b + 1] == 0)
-							fillInPosition(a - 1, b + 1, 1);
-						//fillInPosition(a - 1, b + 1);
+						{
+							if (matToremember[a - 1, b + 1] == 1 || (matToremember[a - 1, b + 1] == 2))
+								matToDisplay[a - 1, b + 1] = 1;
+							else
+									fillInPosition(a - 1, b + 1, 1);
+						}
 					}
+					a = lo; b = la;
 					if (a + 1 != 8 && b - 1 != -1)
 					{
 						if (matToDisplay[a + 1, b - 1] == 0)
-							//fillInPosition(a + 1, b - 1);
-							fillInPosition(a + 1, b - 1, 1);
+						{
+							if (matToremember[a + 1, b - 1] == 1 || (matToremember[a + 1, b - 1] == 2))
+								matToDisplay[a + 1, b - 1] = 1;
+							else
+								fillInPosition(a + 1, b - 1, 1);
+						}
 					}
+					a = lo; b = la;
 					if (a - 1 != -1 && b - 1 != -1)
 					{
 						if (matToDisplay[a - 1, b - 1] == 0)
-							//fillInPosition(a - 1, b - 1);
-							fillInPosition(a - 1, b - 1, 1);
+						{
+							if (matToremember[a - 1, b - 1] == 2 || matToremember[a - 1, b - 1] == 1)
+								matToDisplay[a - 1, b - 1] = 1;
+							else
+									fillInPosition(a - 1, b - 1, 1);
+						}
 					}
+					a = lo; b = la;
 					if (a + 1 != 8 && b + 1 != 8)
 					{
 						if (matToDisplay[a + 1, b + 1] == 0)
-							//fillInPosition(a + 1, b + 1);
-							fillInPosition(a + 1, b + 1, 1);
-					}*/
+						{
+							if (matToremember[a + 1, b + 1] == 1 || matToremember[a + 1, b + 1] == 2)
+								matToDisplay[a + 1, b + 1] = 1;
+							else
+								fillInPosition(a + 1, b + 1, 1);
+						}
+					}
+					a = lo; b = la;
 					if (b + 1 != 8)
 					{
 						if (matToDisplay[a, b + 1] == 0)
-							//fillInPosition(a, b + 1);
-							fillInPosition(a, b + 1, 1);
+						{
+							if (matToremember[a, b + 1] == 1 || matToremember[a, b + 1] == 2)
+								matToDisplay[a, b + 1] = 1;
+							else
+								fillInPosition(a, b + 1, 1);
+						}
 					}
+					a = lo; b = la;
 					if (b - 1 != -1)
 					{
 						if (matToDisplay[a, b - 1] == 0)
-							//fillInPosition(a, b - 1);
-							fillInPosition(a, b - 1, 1);
+						{
+							if (matToremember[a, b - 1] == 1 || matToremember[a, b - 1] == 2)
+								matToDisplay[a, b - 1] = 1;
+							else
+								fillInPosition(a, b - 1, 1);
+						}
 					}
+					a = lo; b = la;
 					if (a + 1 != 8)
 					{
 						if (matToDisplay[a + 1, b] == 0)
-							//fillInPosition(a + 1, b);
-							fillInPosition(a + 1, b, 1);
+						{
+							if (matToremember[a + 1, b] == 1 || matToremember[a + 1, b] == 2)
+								matToDisplay[a + 1, b] = 1;
+							else
+								fillInPosition(a + 1, b, 1);
+						}
 					}
+					a = lo; b = la;
 					if (a - 1 != -1)
 					{
 						if (matToDisplay[a - 1, b] == 0)
-							//fillInPosition(a - 1, b);
-							fillInPosition(a - 1, b, 1);
+						{
+							if (matToremember[a - 1, b] == 1 || matToremember[a - 1, b] == 2)
+								matToDisplay[a - 1, b] = 1;
+							else
+								fillInPosition(a - 1, b, 1);
+						}
+
 					}
 
 
@@ -313,7 +314,6 @@ namespace Minesweeper
 						}
 						if (o > 8 || a > 8 || o < 1 || a < 1)
 							throw new Exception("at list 1 number is not valid please try again");
-						//x = fillInPosition(o - 1, a - 1);
 						x = fillInPosition(o - 1, a - 1, 0);
 						if (x == 0)
 							continue;
