@@ -8,6 +8,7 @@
 לדוג עבור הקובץ 
 
 Names: shira (15), shirah (12), Tomer (13), Tommer (4), Sara(19)Synonyms: (shira, shirah), (Yaakov, Yaacov), (Tomer,Tommer)
+
 (מצורף הקובץ try.txt לדוגמא)
 
 המערכת תציג:
