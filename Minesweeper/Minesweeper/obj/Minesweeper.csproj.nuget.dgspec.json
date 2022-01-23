@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\שירה\\Desktop\\-\\Minesweeper\\Minesweeper\\Minesweeper.csproj": {}
+    "C:\\Users\\שירה\\Desktop\\home-project\\Minesweeper\\Minesweeper\\Minesweeper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\שירה\\Desktop\\-\\Minesweeper\\Minesweeper\\Minesweeper.csproj": {
+    "C:\\Users\\שירה\\Desktop\\home-project\\Minesweeper\\Minesweeper\\Minesweeper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\שירה\\Desktop\\-\\Minesweeper\\Minesweeper\\Minesweeper.csproj",
+        "projectUniqueName": "C:\\Users\\שירה\\Desktop\\home-project\\Minesweeper\\Minesweeper\\Minesweeper.csproj",
         "projectName": "Minesweeper",
-        "projectPath": "C:\\Users\\שירה\\Desktop\\-\\Minesweeper\\Minesweeper\\Minesweeper.csproj",
+        "projectPath": "C:\\Users\\שירה\\Desktop\\home-project\\Minesweeper\\Minesweeper\\Minesweeper.csproj",
         "packagesPath": "C:\\Users\\שירה\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\שירה\\Desktop\\-\\Minesweeper\\Minesweeper\\obj\\",
+        "outputPath": "C:\\Users\\שירה\\Desktop\\home-project\\Minesweeper\\Minesweeper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

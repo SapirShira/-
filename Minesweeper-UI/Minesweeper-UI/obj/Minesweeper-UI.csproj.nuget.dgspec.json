@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\שירה\\Desktop\\home-project\\names\\names\\names.csproj": {}
+    "C:\\Users\\שירה\\Desktop\\home-project\\Minesweeper-UI\\Minesweeper-UI\\Minesweeper-UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\שירה\\Desktop\\home-project\\names\\names\\names.csproj": {
+    "C:\\Users\\שירה\\Desktop\\home-project\\Minesweeper-UI\\Minesweeper-UI\\Minesweeper-UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\שירה\\Desktop\\home-project\\names\\names\\names.csproj",
-        "projectName": "names",
-        "projectPath": "C:\\Users\\שירה\\Desktop\\home-project\\names\\names\\names.csproj",
+        "projectUniqueName": "C:\\Users\\שירה\\Desktop\\home-project\\Minesweeper-UI\\Minesweeper-UI\\Minesweeper-UI.csproj",
+        "projectName": "Minesweeper-UI",
+        "projectPath": "C:\\Users\\שירה\\Desktop\\home-project\\Minesweeper-UI\\Minesweeper-UI\\Minesweeper-UI.csproj",
         "packagesPath": "C:\\Users\\שירה\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\שירה\\Desktop\\home-project\\names\\names\\obj\\",
+        "outputPath": "C:\\Users\\שירה\\Desktop\\home-project\\Minesweeper-UI\\Minesweeper-UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -55,6 +55,9 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
