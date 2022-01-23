@@ -163,7 +163,8 @@ namespace names
                     }
                     foreach (string k in new_map.Keys)
                     {
-                        Console.WriteLine(k + ' ' + new_map.GetValueOrDefault(k));
+                        if (new_map.GetValueOrDefault(k) != 0)
+                            Console.WriteLine(k + ' ' + new_map.GetValueOrDefault(k));
                     }
                     work = 1;
                 }
