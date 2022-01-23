@@ -74,23 +74,7 @@ namespace Minesweeper
 					}
 
 				}
-				for (int i = 0; i < 8; i++)
-				{
-					Console.Write((i + 1) + "  -");
-					for (int j = 0; j < 9; j++)
-					{
-						if (j == 8)
-							Console.Write("|");
-						
-							else
-								Console.Write("| " + matToremember[i, j] + " ");
-						
-					}
-					Console.WriteLine("\n");
-				}
-				Console.Write("      -   -   -   -   -   -   -   -\n");
-				Console.Write("      1   2   3   4   5   6   7   8\n");
-
+				
 			}
 
 			public int print()
